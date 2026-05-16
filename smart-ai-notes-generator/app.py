@@ -25,12 +25,13 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024
 
-GEMINI_API_KEY = Get_Ai_Api() # Enter api Key
+GEMINI_API_KEY,MODEL_NAME = Get_Ai_Api() # Enter api Key
+
 
 if GEMINI_API_KEY:
     genai.configure(api_key=GEMINI_API_KEY)
 
-MODEL_NAME = "gemini-3-flash-preview"
+
 
 def get_model():
     return genai.GenerativeModel(
