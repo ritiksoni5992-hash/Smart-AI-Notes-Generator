@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Notes Generator</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+
+<div class="container">
+
+<h1>📘 Smart Notes Generator</h1>
+
+<div v-if="view === 'search'">
+
+<input
+v-model="topicInput"
+placeholder="Enter a topic" />
+
+<button @click="exploreTopic">
+[[ loading ? 'Loading...' : 'Explore Topic' ]]
+</button>
+
+</div>
+
+<div v-if="view === 'topics'">
+
+<h2>[[ explored.mainTopic ]]</h2>
+
+<div
+v-for="group in explored.topicGroups"
+class="card">
+
+<h3>[[ group.title ]]</h3>
+
+<div
+v-for="sub in group.subtopics"
+class="subtopic"
+@click="toggleTopic(sub.title)"
+:class="{selected:selectedTopics.includes(sub.title)}">
+
+<strong>[[ sub.title ]]</strong>
+
+<p>[[ sub.description ]]</p>
+
+</div>
+
+</div>
+
+<button @click="generateNotes">
+Generate Notes
+</button>
+
+</div>
+
+<div v-if="view === 'notes'">
+
+<h2>[[ notes.mainTopic ]]</h2>
+
+<p>
+Code Topic:
+[[ notes.topicAnalysis.isCodeTopic ]]
+</p>
+
+<div
+v-for="slide in notes.slides"
+class="slide">
+
+<h2>[[ slide.title ]]</h2>
+
+<div
+v-for="section in slide.contentSections">
+
+<div v-if="section.type === 'text'">
+
+<h3>[[ section.title ]]</h3>
+
+<p>[[ section.content ]]</p>
+
+</div>
+
+<div v-if="section.type === 'code'">
+
+<h3>[[ section.title ]]</h3>
+
+<pre><code>[[ section.code ]]</code></pre>
+
+</div>
+
+</div>
+
+<button @click="downloadPDF">
+Download PDF
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>
