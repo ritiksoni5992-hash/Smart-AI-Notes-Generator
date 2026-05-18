@@ -3,6 +3,9 @@ Smart Notes Generator is a full-stack AI-powered educational web application des
 
 ## drive link for project pdf report:
 https://drive.google.com/file/d/1QbNR7ELc733F_K0RIrvlEJgkUcgZR98R/view?usp=drive_link
+## YouTube Link:
+https://youtu.be/u10hDB1YrEg?si=H5J7dUiKOEwdJD6i
+
 
 # Features
 - AI topic organization
