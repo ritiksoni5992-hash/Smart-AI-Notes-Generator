@@ -1,9 +1,9 @@
 # Smart-AI-Notes-Generator
 Smart Notes Generator is a full-stack AI-powered educational web application designed to help students, self-learners, and educators. The application uses Google Gemini AI to analyze educational topics, classify them intelligently, generate detailed learning content, and export professional PDF study materials.
 
-## drive link for project pdf report:
+## Drive link for Project pdf report:
 https://drive.google.com/file/d/1QbNR7ELc733F_K0RIrvlEJgkUcgZR98R/view?usp=drive_link
-## YouTube Link:
+## YouTube Video Link for Project report:
 https://youtu.be/u10hDB1YrEg?si=H5J7dUiKOEwdJD6i
 
 
